@@ -160,7 +160,11 @@ class Module extends Module_Base {
 	
 	protected function add_actions() {
 		add_action( 'elementor/element/before_section_end', [ $this, 'register_controls' ], 10, 3 );
-		add_action( 'elementor/frontend/element/after_render', [ $this, 'after_render'], 10, 1 );
+		/**
+		 * Changed the hook elementor/frontend/element/after_render
+		 * to elementor/frontend/section/after_render
+		 */
+		add_action( 'elementor/frontend/section/after_render', [ $this, 'after_render'], 10, 1 );
 		
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 	}
